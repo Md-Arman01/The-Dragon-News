@@ -1,17 +1,40 @@
 import { BsGoogle } from "react-icons/Bs";
 import { BiLogoGithub } from "react-icons/Bi";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 // import {swimming} from '../../assets/qZone1.png'
 
+
+
 const RightSideItem = () => {
+  const {loginWithGoogle, loginWithGithub} = useContext(AuthContext)
+
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
+    .then((result) => {
+      console.log(result.user)
+    }).catch((error) => {
+      console.log(error.message)
+    });
+  }
+  const handleGithubLogin = () => {
+    loginWithGithub()
+    .then((result) => {
+      console.log(result.user)
+    }).catch((error) => {
+      console.log(error.message)
+    });
+  }
+
   return (
     <>
       <div>
         <h1 className="text-xl font-bold">Login With</h1>
         <div className="flex flex-col space-y-2 my-4">
-          <button className="btn btn-outline btn-info normal-case">
+          <button onClick={handleGoogleLogin} className="btn btn-outline btn-info normal-case">
             <BsGoogle></BsGoogle>Login With Google
           </button>
-          <button className="btn btn-outline normal-case">
+          <button onClick={handleGithubLogin} className="btn btn-outline normal-case">
             <BiLogoGithub className="text-lg"></BiLogoGithub>Login With Github
           </button>
         </div>

@@ -9,7 +9,7 @@ const NewsItem = () => {
 
     useEffect(()=>{
 
-        fetch('../../../../public/Data/news.json')
+        fetch('/Data/news.json')
         .then(res => res.json())
         .then(res => setAllNews(res))
 

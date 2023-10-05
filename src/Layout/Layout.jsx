@@ -7,6 +7,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 const Layout = () => {
 
   const {user, logOut} = useContext(AuthContext);
+  console.log(user)
 
     const handleLogOut = () =>{
       logOut()
@@ -47,6 +48,8 @@ const Layout = () => {
   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img src={userImage} />
+          {/* <img src={user? user.photoURL : userImage} /> */}
+          {/* <img src='https://lh3.googleusercontent.com/a/ACg8ocJm0AoynJh6-ZnPm6YsOA5thpryNmVZWduMPBG4LO9I_g=s96-c' /> */}
         </div>
       </label>
 

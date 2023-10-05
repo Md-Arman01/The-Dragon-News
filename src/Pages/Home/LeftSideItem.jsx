@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const LeftSideItem = () => {
   const [alldata, setAllData] = useState([]);
   useEffect(() => {
-    fetch("../../../public/Data/categories.json")
+    fetch("/Data/categories.json")
       .then((res) => res.json())
       .then((res) => setAllData(res));
   }, []);
